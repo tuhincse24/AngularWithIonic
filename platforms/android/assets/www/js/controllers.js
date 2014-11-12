@@ -67,6 +67,12 @@ angular.module('credentialManager.controllers', [])
         .error(function (data, status, headers, config) {
             console.log("Error occurred.  Status:" + status);
         });
+        
+        
+    $scope.newCredential = function() {
+            console.log("Get aware  Status:");
+        $state.go('app.credential');
+    };
 })
 
 .controller('CredentialCtrl',function($scope, $state,$http){

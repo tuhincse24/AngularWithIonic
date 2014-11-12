@@ -44,6 +44,7 @@ D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\css\style.
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\img\ionic.png \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\js\app.js \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\js\controllers.js \
+D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\js\ng-cordova.js \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\js\services.js \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\lib\angular-http-auth \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\lib\ionic \
@@ -114,12 +115,16 @@ D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\lib\ionic\
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\lib\ionic\scss\ionicons\_ionicons-font.scss \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\lib\ionic\scss\ionicons\_ionicons-icons.scss \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\lib\ionic\scss\ionicons\_ionicons-variables.scss \
+D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\plugins\com.brodysoft.sqlitePlugin \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\plugins\org.apache.cordova.device \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\plugins\org.apache.cordova.statusbar \
+D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\plugins\com.brodysoft.sqlitePlugin\www \
+D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\plugins\com.brodysoft.sqlitePlugin\www\SQLitePlugin.js \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\plugins\org.apache.cordova.device\www \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\plugins\org.apache.cordova.device\www\device.js \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\plugins\org.apache.cordova.statusbar\www \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\plugins\org.apache.cordova.statusbar\www\statusbar.js \
+D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\templates\credential.html \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\templates\credentials.html \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\templates\customers.html \
 D:\Training\Ionic\ionic-http-auth-master\platforms\android\assets\www\templates\home.html \

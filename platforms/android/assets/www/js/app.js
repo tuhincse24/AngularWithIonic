@@ -6,7 +6,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'credentialManager.controllers' is found in controllers.js
 // 'credentialManager.services is' found in services.js
-angular.module('credentialManager', ['ionic', 'ngMockE2E', 'credentialManager.services', 'credentialManager.controllers'])
+angular.module('credentialManager', ['ionic', 'ngMockE2E', 'credentialManager.services', 'credentialManager.controllers', 'ngCordova'])
 
 .run(function($rootScope, $ionicPlatform, $httpBackend, $http) {
 
@@ -24,7 +24,7 @@ angular.module('credentialManager', ['ionic', 'ngMockE2E', 'credentialManager.se
   
   // returns the current list of customers or a 401 depending on authorization flag
   $httpBackend.whenGET('https://customers').respond(function (method, url, data, headers) {
-      console.log("wen GET Customers");
+      console.log("when GET Customers");
 	  return authorized ? [200, customers] : [401];
   });
 
@@ -34,14 +34,20 @@ angular.module('credentialManager', ['ionic', 'ngMockE2E', 'credentialManager.se
 	  return [200, credentials];
   });
 
+    // returns the current list of customers or a 401 depending on authorization flag
+  $httpBackend.whenGET('https://credential').respond(function (method, url, data, headers) {
+      console.log("when GET Credential");
+	  return [200];
+  });
+
   $httpBackend.whenPOST('https://login').respond(function(method, url, data) {
-      console.log("wen Post login");
+      console.log("when Post login");
     authorized = true;
     return  [200 , { authorizationToken: "NjMwNjM4OTQtMjE0Mi00ZWYzLWEzMDQtYWYyMjkyMzNiOGIy" } ];
   });
 
   $httpBackend.whenPOST('https://logout').respond(function(method, url, data) {
-      console.log("wen POST Logout");
+      console.log("when POST Logout");
     authorized = false;
     return [200];
   });
@@ -85,6 +91,15 @@ angular.module('credentialManager', ['ionic', 'ngMockE2E', 'credentialManager.se
 	      'menuContent' :{
 	          controller:  "CredentialCtrl",
 	          templateUrl: "templates/credentials.html"            	
+	      }
+	  }      	  
+    })
+    .state('app.credential', {
+      url: "/credential",
+	  views: {
+	      'menuContent' :{
+	          controller:  "CredentialCtrl",
+	          templateUrl: "templates/credential.html"            	
 	      }
 	  }      	  
     })

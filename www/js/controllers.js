@@ -67,17 +67,70 @@ angular.module('credentialManager.controllers', [])
         .error(function (data, status, headers, config) {
             console.log("Error occurred.  Status:" + status);
         });
+        
+        
 })
 
-.controller('CredentialCtrl',function($scope, $state,$http){
+.controller('CredentialCtrl',function($scope, $state, $http, $cordovaSQLite){
     $scope.credentials = [];
     $http.get('https://credentials')
         .success(function(data,status, headers, config){
-            $scope.credentials = data;
+            var query = "SELECT * FROM credential";
+            $cordovaSQLite.execute(db, query).then(function(res) {
+                if(res.rows.length > 0) {
+                    for (var i = 0; i < res.rows.length; i++) {
+                        $scope.credentials.push(res.rows.item(i));
+                    }
+                    console.log("SELECTED -> " + res.rows.item(0).siteName + " " + res.rows.item(0).email);
+                } else {
+                    console.log("No results found");
+                }
+            }, function (err) {
+                console.error(err);
+            });
         })
         .error(function(data, status, headers, config){
             console.log("Erroer occured. Status:" + status);
         });
+  
+    $scope.credential = {
+      siteName: null,
+      url: null,
+      userName: null,
+      email: null,
+      password: null
+    };
+    
+    $scope.newCredential = function() {
+            console.log("Get aware  Status:");
+        $state.go('app.credential');
+    };
+    
+    $scope.listCredential = function() {
+        $state.go('app.credentials');
+    };
+    
+    $scope.saveCredential = function(credential) {
+        var query = "INSERT INTO credential (siteName, url, userName, email, password) VALUES (?,?,?,?,?)";
+        $cordovaSQLite.execute(db, query, [credential.siteName, credential.url, credential.userName, credential.email, credential.password]).then(function(res) {
+            console.log("INSERT ID -> " + res.insertId);
+        }, function (err) {
+            console.error(err);
+        });
+    };
+    
+    $scope.select = function() {
+        var query = "SELECT * FROM credential";
+        $cordovaSQLite.execute(db, query).then(function(res) {
+            if(res.rows.length > 0) {
+                console.log("SELECTED -> " + res.rows.item(0).siteName + " " + res.rows.item(0).email);
+            } else {
+                console.log("No results found");
+            }
+        }, function (err) {
+            console.error(err);
+        });
+    };
 })
  
 .controller('LogoutCtrl', function($scope, AuthenticationService) {
